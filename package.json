@@ -1,0 +1,12 @@
+{
+  "name": "transmitter-to-host",
+  "version": "0.0.1",
+  "description": "Transmitter To Host",
+  "main": "index.js",
+  "repository": "git@github.com:foroughi1380/transmitter-to-host.git",
+  "author": "Mohammad Foroughi <foroughi1380@gmail.com>",
+  "license": "GNU v3",
+  "dependencies": {
+    "antd": "^5.3.1"
+  }
+}
