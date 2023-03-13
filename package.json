@@ -7,6 +7,6 @@
   "author": "Mohammad Foroughi <foroughi1380@gmail.com>",
   "license": "GNU v3",
   "dependencies": {
-    "antd": "^5.3.1"
+    "bootstrap": "5.3.0-alpha1"
   }
 }
