@@ -3,16 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            width: 30rem;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <input type="button" value="Send">
-    </div>
-
-    <div>
-        <form action="../pages/settings.html" target="_blank">
-            <input type="submit" value="Open Settings">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid justify-content-center">
+        <span class="navbar-text text-center">
+          Transmit
+        </span>
+        <span class="position-fixed" style="right: 1rem">
+            <form action="../pages/settings.html" target="_blank">
+            <button type="submit" class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+              ⚙️
+            </button>
         </form>
+
+        </span>
+        </div>
+    </nav>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Captured Headers
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body px-0 overflow-y-scroll overflow-x-scroll" style="max-height: 300px">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">key</th>
+                            <th scope="col">value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td scope="row">Mark</td>
+                            <td>Otto</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Actions
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body px-0">
+                    <div class="container">
+                        <strong>options</strong>
+                        <hr>
+
+                        <div>
+                            <div class="d-flex mb-2 flex-column" >
+                                <div class="d-flex flex-nowrap align-items-start">
+                                    <label class="form-label mx-2 mt-2">Key: </label>
+                                    <input class="form-control" placeholder="ex: Authentication" x-value="row.key">
+                                </div>
+                                <div class="d-flex flex-nowrap align-items-start flex-fill">
+                                    <label class="form-label mx-2 mt-1">Value:</label>
+                                    <textarea class="form-control flex-fill" placeholder="ex: Beare ... " x-value="row.value"></textarea>
+                                </div>
+                                <div class="d-flex  align-items-end mx-2">
+                                    <input type="button" class="btn btn-light" value="🗑️" x-on:click="$store.headers.delete(i)">
+                                </div>
+
+                                <div class="my-2" style="border-top: dashed 2px gray"></div>
+
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary flex-fill" onclick="store('headers').append('','')">+</button>
+                        </div>
+                    </div>
+
+
+
+                    <nav class="navbar bg-body-tertiary mt-2">
+                        <div class="container-fluid">
+                            <button type="button" class="btn btn-primary btn-sm mt-2">Sent</button>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+
+        </div>
     </div>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
