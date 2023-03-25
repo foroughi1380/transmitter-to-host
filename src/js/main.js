@@ -65,6 +65,44 @@ function printOptions(){
 
 }
 
+function makeRequestHeader(headers){
+    let ret = {
+        "Content-Type": "application/json",
+    }
+    for (const header of headers) {
+        ret[header.key] = header.value
+    }
+
+    return ret;
+}
+
+function send(){
+    headers = {}
+    context.storage.sync.get({'host' : "" , "headers" : [] , 'options' : []}, function(items) {
+        let data = {
+            options : Options,
+            headers : headers
+        }
+
+
+        fetch(items.host, {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: makeRequestHeader(),
+            redirect: "follow",
+            referrerPolicy: "no-referrer",
+            body: JSON.stringify(data),
+        }).then((r)=>{
+            window.alert('data sent')
+        }).catch((e)=>{
+            window.alert('error in send')
+        });
+    });
+
+}
+
 
 main();
 
