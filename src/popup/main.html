@@ -80,28 +80,30 @@
                         <strong>options</strong>
                         <hr>
 
-                        <div>
+                        <template id="option_row_template">
                             <div class="d-flex mb-2 flex-column" >
                                 <div class="d-flex flex-nowrap align-items-start">
                                     <label class="form-label mx-2 mt-2">Key: </label>
-                                    <input class="form-control" placeholder="ex: Authentication" x-value="row.key">
+                                    <input class="key-input-template form-control" placeholder="ex: id" >
                                 </div>
                                 <div class="d-flex flex-nowrap align-items-start flex-fill">
                                     <label class="form-label mx-2 mt-1">Value:</label>
-                                    <textarea class="form-control flex-fill" placeholder="ex: Beare ... " x-value="row.value"></textarea>
+                                    <textarea class="value-input-template form-control flex-fill" placeholder="ex: my site " ></textarea>
                                 </div>
-                                <div class="d-flex  align-items-end mx-2">
-                                    <input type="button" class="btn btn-light" value="🗑️" x-on:click="$store.headers.delete(i)">
+                                <div class="d-flex mx-2">
+                                    <input type="button" class="btn-remove-input-template btn btn-light" value="🗑️">
                                 </div>
-
-                                <div class="my-2" style="border-top: dashed 2px gray"></div>
-
+                                <div style="border-top: dashed gray 1px" class="my-2"></div>
                             </div>
+                        </template>
+
+                        <div id="option_containers">
+
                         </div>
 
                         <hr>
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary flex-fill" onclick="store('headers').append('','')">+</button>
+                            <button id="btn-add-option-row" class="btn btn-primary flex-fill">+</button>
                         </div>
                     </div>
 
@@ -119,5 +121,7 @@
         </div>
     </div>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script src="/src/js/main.js"></script>
 </body>
 </html>
