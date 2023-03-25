@@ -14,6 +14,7 @@ function main() {
 function addEvents(){
     console.log(document.querySelector("#btn-add-option-row"))
     document.querySelector("#btn-add-option-row").addEventListener('click' , addOptionsRow)
+    document.querySelector("#btn_send").addEventListener('click' , send)
 }
 
 function saveOptions(){
