@@ -6,7 +6,7 @@
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container mt-3">
+<div id="app" class="container mt-3" >
     <div class="d-flex align-items-start">
 
         <div class="nav flex-column nav-pills me-3 card" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -26,10 +26,16 @@
                 <div class="card card-body mt-3">
                     <div>
                         <label class="form-label">Address</label>
-                        <input class="form-control" placeholder="ex: https://example.com/api/save">
+                        <input id="hostAddress" class="form-control" placeholder="ex: https://example.com/api/save" v-model="message">
                         <p class="small m-2">extension will send data to this address.</p>
                     </div>
+
+                    <div class="card-footer">
+                        <input class="btn btn-primary" id="btn_save_host" type="button" value="Save">
+                    </div>
                 </div>
+
+
             </div>
             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
                 <div class="card card-body" >
@@ -38,24 +44,31 @@
 
                 <div class="card card-body mt-3">
 
-                    <template x-for="(row , i) in $store.headers ? $store.headers.get() : []">
+                    <template id="header_row_template">
                         <div class="d-flex mb-2" >
                             <div class="d-flex flex-nowrap align-items-start">
                                 <label class="form-label mx-2 mt-2">Key: </label>
-                                <input class="form-control" placeholder="ex: Authentication" x-value="row.key">
+                                <input class="key-input-template form-control" placeholder="ex: Authentication" >
                             </div>
                             <div class="d-flex flex-nowrap align-items-start flex-fill">
                                 <label class="form-label mx-2 mt-1">Value:</label>
-                                <textarea class="form-control flex-fill" placeholder="ex: Beare ... " x-value="row.value"></textarea>
+                                <textarea class="value-input-template form-control flex-fill" placeholder="ex: Beare ... " ></textarea>
                             </div>
                             <div class="d-flex justify-content-center align-items-end mx-2">
-                                <input type="button" class="btn btn-light" value="🗑️" x-on:click="$store.headers.delete(i)">
+                                <input type="button" class="btn-remove-input-template btn btn-light" value="🗑️">
                             </div>
                         </div>
                     </template>
+                    <div id="headers_container">
+
+                    </div>
 
                     <div class="d-flex justify-content-center">
-                        <button class="btn btn-primary flex-fill" onclick="store('headers').append('','')">+</button>
+                        <button id="btn_add_header_row" class="btn btn-primary flex-fill" >+</button>
+                    </div>
+
+                    <div class="card-footer mt-2">
+                        <input class="btn btn-primary" id="btn_save_headers" type="button" value="Save">
                     </div>
                 </div>
 
@@ -68,7 +81,7 @@
 
 
   <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <script src="/node_modules/alpinejs/dist/cdn.js"></script>
+
   <script src="/src/js/setting.js"></script>
 </body>
 </html>

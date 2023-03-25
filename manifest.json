@@ -3,10 +3,15 @@
   "name": "Transmitter To Host",
   "description" : "a browsers' extension for send header cookie and other to a host",
   "version" : "0.0.1",
+
   "action" : {
     "default_popup" : "src/popup/main.html"
   },
   "sandbox": {
     "pages": ["awesome_alpine.html"]
-  }
+  },
+  "permissions" : [
+    "storage",
+    "tabs"
+  ]
 }
